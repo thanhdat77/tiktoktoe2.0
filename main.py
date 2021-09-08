@@ -11,7 +11,6 @@ pygame.display.set_caption("tiktoktoe 2.0")
 def main():
     run = True
     game = Game()
-
     while run:
         clock = pygame.time.Clock()
         clock.tick(FPS)
@@ -23,11 +22,10 @@ def main():
                 x, y = pos
                 if game.choose(x, y) != 0:
                     game.turn = game.choose(x, y)
-                    print(game.choose(x, y))
+                    print(game.turn)
                 else:
                     mourse_x, mourse_y = pos[0] // SIZE, pos[1] // SIZE
-                    print(mourse_x, mourse_y)
-                    pass
+                    game.play(mourse_x, mourse_y)
         game.draw_board(WIN)
         if game.draw_winner(WIN):
             run = False
