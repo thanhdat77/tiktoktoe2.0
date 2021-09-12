@@ -1,5 +1,4 @@
 import pygame
-from pygame.constants import KSCAN_Z
 from tiktoktoe.constant import (
     WIDTH,
     HEIGHT,
@@ -43,19 +42,10 @@ def main():
                 if event.button == 1:
                     pos = pygame.mouse.get_pos()
                     row, col = get_row_col_from_mouse(pos)
-                    game.clickleft(row, col)
-
-                elif event.button == 3:
-                    pos = pygame.mouse.get_pos()
-                    row, col = get_row_col_from_mouse(pos)
-                    game.clickright(row, col)
-
-                elif event.button == 3 or event.button == 5:
-                    pos = pygame.mouse.get_pos()
-                    row, col = get_row_col_from_mouse(pos)
-                    game.clickmid(row, col)
+                    game.play(row, col)
 
         game.update()
+        print(game.board.get())
     main()
 
 
