@@ -18,8 +18,6 @@ from tiktoktoe.game import Game
 FPS = 60
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("tiktoktoe 2.0")
-pygame.font.init()
-WINNER_FONT = pygame.font.SysFont("comicsans", 100)
 
 
 def get_row_col_from_mouse(pos):
@@ -35,23 +33,11 @@ def main():
     game = Game(WIN)
     while run:
         clock.tick(FPS)
-
-        if game.winner() != 0:
-            text = game.winner()
-            draw_text = WINNER_FONT.render(text, 1, YELLOW)
-            WIN.blit(
-                draw_text,
-                (
-                    WIDTH / 2 - draw_text.get_width() / 2,
-                    HEIGHT / 2 - draw_text.get_height() / 2,
-                ),
-            )
-            pygame.display.update()
-            # pygame.time.delay(3000)
-
+        if game.winner():
+            run = False
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                run = False
+                pygame.quit()
 
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if event.button == 1:
@@ -69,9 +55,8 @@ def main():
                     row, col = get_row_col_from_mouse(pos)
                     game.clickmid(row, col)
 
-                print(game.turn_W, game.turn_B)
         game.update()
-    pygame.quit()
+    main()
 
 
 if __name__ == "__main__":

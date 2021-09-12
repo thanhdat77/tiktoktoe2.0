@@ -1,7 +1,10 @@
 import pygame
-from .constant import WIDTH, HEIGHT, COLUMN, ROW, SIZE, TAN, GREEN, BLACK, WHITE
+from .constant import WIDTH, HEIGHT, COLUMN, ROW, SIZE, TAN, GREEN, BLACK, WHITE, YELLOW
 
 from tiktoktoe.board import Board
+
+pygame.font.init()
+WINNER_FONT = pygame.font.SysFont("comicsans", 100)
 
 
 class Game:
@@ -21,10 +24,21 @@ class Game:
 
     def winner(self):
         text = self.board.winner()
-        if text != 0:
-            return text
+        if text == 0:
+            return False
         else:
-            return 0
+            draw_text = WINNER_FONT.render(text, 1, YELLOW)
+            self.win.blit(
+                draw_text,
+                (
+                    WIDTH / 2 - draw_text.get_width() / 2,
+                    HEIGHT / 2 - draw_text.get_height() / 2,
+                ),
+            )
+            pygame.display.update()
+            pygame.time.delay(2000)
+            return True
+
     def reset(self):
         self._init()
 

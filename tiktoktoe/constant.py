@@ -2,7 +2,7 @@ import pygame
 
 TAN = (195, 142, 217)
 GREEN = (130, 224, 170)
-BLACK = (100, 100, 10)
+BLACK = (50, 100, 10)
 WHITE = (250, 250, 250)
 YELLOW = (217, 136, 128)
 WIDTH, HEIGHT = 600, 600
