@@ -50,7 +50,7 @@ def main():
                     row, col = get_row_col_from_mouse(pos)
                     game.clickright(row, col)
 
-                elif event.button == 3 or event.button == 5:
+                elif event.button == 2 or event.button == 5:
                     pos = pygame.mouse.get_pos()
                     row, col = get_row_col_from_mouse(pos)
                     game.clickmid(row, col)
