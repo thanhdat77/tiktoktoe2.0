@@ -1,5 +1,5 @@
 import pygame
-from .constant import WIDTH, HEIGHT, DRA180, COLUMN, ROW, SIZE, TAN, GREEN, BLACK, WHITE
+from .constant import WIDTH, HEIGHT, COLUMN, ROW, SIZE, TAN, GREEN, BLACK, WHITE
 
 
 class Ox:
@@ -24,7 +24,7 @@ class Ox:
             pygame.draw.rect(
                 win,
                 self.color,
-                (self.col * SIZE + 30, self.row * SIZE, SIZE - 60, SIZE - 60),
+                (self.col * SIZE + 30, self.row * SIZE - 25, SIZE - 60, SIZE - 60),
             )
         elif self.king == 2:
             pygame.draw.rect(
