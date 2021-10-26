@@ -1,11 +1,11 @@
 # tiktoktoe with new rule
+-Rule:
+White đi trước rồi tới Xanh
+Kết nối 3 điểm thẳng hàng để thắng
+Left-click để đi quân nhỏ 
+Right-click để đi quân lớn 
+Quân lớn có thể ăn bất kì quân nhỏ
+Mỗi người chơi có 3 quân mổi loại 
+Dưới đây là ví dụ cụ thể về việc quân lớn ăn quân nhỏ của đối thủ:
 
-Add a new remote for your branch :
 
-$ git remote add [name_of_your_remote] [name_of_your_new_branch]
-Push changes from your commit into your branch :
-
-$ git push [name_of_your_new_remote] [url]
-Update your branch when the original branch from official repository has been updated :
-
-$ git fetch [name_of_your_remote]
