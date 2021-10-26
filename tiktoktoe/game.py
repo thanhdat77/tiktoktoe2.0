@@ -19,11 +19,11 @@ class Game:
         self.turn_B = [3, 3, 3]
 
     def update(self):
-        self.board.draw(self.win)
+        self.board.draw(self.win)  # ve ban choi
         pygame.display.update()
 
     def winner(self):
-        text = self.board.winner()
+        text = self.board.winner()  # ve text
         if text == 0:
             return False
         else:
@@ -42,14 +42,14 @@ class Game:
     def reset(self):
         self._init()
 
-    def get(self, row, col):
+    def get(self, row, col):  # lay vi tri ba hien tai
         text = self.board.get(row, col)
         if text != 0:
             return text
         else:
             return 0
 
-    def clickleft(self, row, col):
+    def clickleft(self, row, col):  # create small
         if self.turn_W[0] > 0 and self.color == WHITE:
             if self.board.create_ox(row, col, self.color):
                 self.turn_W[0] = self.turn_W[0] - 1
@@ -75,7 +75,7 @@ class Game:
                 return True
         return False
 
-    def clickright(self, row, col):
+    def clickright(self, row, col):  # create the big
         if self.turn_W[2] > 0 and self.color == WHITE:
             if self.board.create_king(row, col, self.color):
                 self.turn_W[2] -= 1
